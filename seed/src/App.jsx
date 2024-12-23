@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Products from "./components/Products";
 import Services from "./components/Services";
 import Appointment from "./components/Appointment";
-import TestimonialSlider from "./components/emonia";
+import TestimonialSlider from "./components/Emonia";
 import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 import QRDisplay from "./components/QR";
