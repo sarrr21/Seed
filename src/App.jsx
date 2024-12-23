@@ -13,7 +13,7 @@ import QRDisplay from "./components/QR";
 export default function App() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-md mx-auto min-h-screen" 
+      <div className="max-w-sm mx-auto min-h-screen" 
        style={{
         backgroundImage: "url('./image/bg.jpg')",
         backgroundSize: "cover",

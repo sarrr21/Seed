@@ -20,7 +20,7 @@ export default function Header() {
         <img 
           src="./image/profiles.png" 
           alt="Profile" 
-          className="rounded-2xl border border-white w-32 h-32"
+          className="rounded-2xl border border-white w-32 h-28"
         />
        </div>
        </div>
@@ -41,10 +41,10 @@ export default function Header() {
         </a>
       </div>
       <div>
-        <p className=" text-xs px-6 text-gray-400">
+        <p className=" text-xs px-2 text-gray-400">
         Lorem Ipsum is simply dummy text of the printing and typesetting<br/> Industry.
        Lorem Ipsum has been the industry's standard dummy text<br/> ever since the 1500s,
-         when an unknown printer took a galley of type<br/> and scrambled it to make a type specimen book.
+        when an unknown printer took a galley of type<br/> and scrambled it to make a type specimen book.
         </p>
       </div>
     </header>
