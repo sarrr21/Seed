@@ -9,7 +9,7 @@ export default function Services() {
           <div className="flex justify-center items-center gap-3 mb-2">
             <Plane className="text-yellow-400" />
           </div>
-          <h3 className="font-bold whitespace-nowrap">Airport Transfers</h3>
+          <h3 className="font-bold ">Airport Transfers</h3>
           <p className="text-gray-400">Professional and punctual airport transfer service</p>
         </div>
         <div className="p-4 border-2 border-white border-dashed  rounded-lg">
