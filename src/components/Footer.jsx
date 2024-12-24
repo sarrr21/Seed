@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
         
      
-       <div className='mx-24 mt-8'>
+       <div className='mx-16 mt-8'>
         <button 
           className="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500 whitespace-nowrap"
         >

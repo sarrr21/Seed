@@ -30,7 +30,7 @@ export default function ContactForm() {
               placeholder="Your Message "
             ></textarea>
           </div>
-          <div className="mx-28">
+          <div className="mx-16">
           <button className="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500 whitespace-nowrap">
             Send Message
           </button>
