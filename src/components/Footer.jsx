@@ -41,7 +41,7 @@ export default function Footer() {
      
        <div className='mx-24 mt-8'>
         <button 
-          className="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500"
+          className="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500 whitespace-nowrap"
         >
           Add to Contact
         </button>
