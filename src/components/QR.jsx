@@ -8,7 +8,7 @@ export default function QRDisplay() {
   }
 
   return (
-    <div className=" items-center   p-6">
+    <div className=" items-center mt-36  p-6">
         <h1 className='text-xl font-bold mb-4 text-white'>QR Code</h1>
         
      <div className="flex flex-col items-center gap-3 w-auto rounded-xl bg-zinc-800 border-zinc-700">

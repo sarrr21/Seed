@@ -1,8 +1,6 @@
 
 import { useState } from 'react'
 
-
-
 export default function Blog() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -43,7 +41,7 @@ export default function Blog() {
 
   return (
     <div className="  p-6">
-  <div className="max-w-6xl mx-auto relative">
+  <div className=" mx-auto ">
     <h2 className="text-xl font-bold text-white  mt-6 mb-4">Blog</h2>
 
     <div className="relative">
