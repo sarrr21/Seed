@@ -12,8 +12,8 @@ import Footer from "./components/Footer";
 import QRDisplay from "./components/QR";
 export default function App() {
   return (
-    <div className="min-h-screen bg-black">
-      <div className="max-full mx-auto min-h-screen" 
+    <div className=" min-h-screen bg-black">
+      <div className="max-w-3xl mx-auto min-h-screen" 
        style={{
         backgroundImage: "url('./image/bg.jpg')",
         backgroundSize: "cover",
