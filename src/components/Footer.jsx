@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ExternalLink, Share2 } from 'lucide-react'
 
 export default function Footer() {
-  const [vcardUrl] = useState('https://vcards.intyom.com/marlonbrasil')
+  const [vcardUrl] = useState('https://vcards.intyom.com/')
 
   const copyToClipboard = async () => {
     try {

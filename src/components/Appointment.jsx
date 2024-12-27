@@ -1,55 +1,125 @@
-
-import { useState } from "react"
-import { CalendarIcon, CircleDot } from 'lucide-react'
+import { useState, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import { CalendarIcon } from "lucide-react";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Appointment() {
-  const [date, setDate] = useState(null)
-  const [selectedTime, setSelectedTime] = useState(null)
+  // Default the date to today's date.
+  const [date, setDate] = useState(new Date());
 
-  const timeSlots = [
-    "8:10 - 20:00",
-    "8:10 - 20:00",
-    "8:10 - 20:00",
-    "8:10 - 20:00"
-  ]
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [timeSlots, setTimeSlots] = useState([]);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  // Generate random time slots or any custom logic you want.
+  const generateRandomTimeSlots = (numSlots = 4) => {
+    let slots = [];
+    for (let i = 0; i < numSlots; i++) {
+      // Example: random hour between 8 and 17
+      const startHour = 8 + Math.floor(Math.random() * 9);
+      const startMin = Math.random() < 0.5 ? "00" : "30"; // random "00" or "30"
+      
+      // Example: shift end time 45 minutes later
+      let endHour = startHour;
+      let endMin = "45";
+
+      const startTimeStr = `${startHour}:${startMin.padStart(2, "0")}`;
+      const endTimeStr = `${endHour}:${endMin.padStart(2, "0")}`;
+      slots.push(`${startTimeStr} - ${endTimeStr}`);
+    }
+    return slots;
+  };
+
+  // On mount (and whenever the date changes), generate time slots.
+  useEffect(() => {
+    const slots = generateRandomTimeSlots();
+    setTimeSlots(slots);
+  }, [date]);
+
+  const handleDateClick = () => {
+    setShowDatePicker(!showDatePicker);
+  };
+
+  const handleDateSelect = (newDate) => {
+    setDate(newDate);
+    setShowDatePicker(false);
+  };
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+  };
+
+  const handleAppointment = () => {
+    if (date && selectedTime) {
+      alert(`Appointment set on ${date.toDateString()} at ${selectedTime}`);
+    } else {
+      alert("Please select a date and time first!");
+    }
+  };
 
   return (
-   
-      <div className="w-full p-6 ">
-       <div className="text-xl font-bold mt-6 mb-4 text-white">Make an Appointment</div>
-          
-        <div className="space-y-6 ">
-          <div className=" flex gap-4">
-            <label className="text-md text-zinc-300 font-semibold">Date:</label>
-            <div className="flex items-center justify-between w-full gap-2 p-3 rounded-lg bg-zinc-800 cursor-pointer">
-                <div className="text-zinc-300 w-full">
-                  {date ? date.toDateString() : "Pick a date "}
-                </div>
-                <CalendarIcon className="w-5 h-5 text-yellow-500" />
-              </div>
+    <div className="w-full p-6">
+      <div className="text-xl font-bold mt-6 mb-4 text-white">
+        Make an Appointment
+      </div>
+
+      <div className="space-y-6">
+        {/* Date Section */}
+        <div className="flex gap-4">
+          <label className="text-md text-zinc-300 font-semibold">Date:</label>
+          <div
+            className="flex items-center justify-between w-full gap-2 p-3 rounded-lg bg-zinc-800 cursor-pointer"
+            onClick={handleDateClick}
+          >
+            <div className="text-zinc-300 w-full">
+              {date ? date.toDateString() : "Pick a date"}
             </div>
-          <div className="flex gap-4">
-            <label className="text-md text-zinc-300 font-semibold">Hour:</label>
-            <div className="grid grid-cols-2 w-full gap-2">
-              {timeSlots.map((time, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedTime(time)}
-                  className="p-3  rounded-lg  bg-zinc-800 text-yellow-500 text-center"
-                >
-                  {time}
-                </button>
-              ))}
-            </div>
+            <CalendarIcon className="w-5 h-5 text-yellow-500" />
           </div>
-          <div className="pl-14">
-          <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-2 rounded-lg ">
-            Make an Appointment
-          </button>
+
+          {/* Show the DatePicker when user clicks the icon or date field */}
+          {showDatePicker && (
+            <div className="absolute z-50 mt-14">
+              <DatePicker
+                selected={date}
+                onChange={handleDateSelect}
+                inline
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Time Slots Section */}
+        <div className="flex gap-4">
+          <label className="text-md text-zinc-300 font-semibold">Hour:</label>
+          <div className="grid grid-cols-2 w-full gap-2">
+            {timeSlots.map((time, index) => (
+              <button
+                key={index}
+                onClick={() => handleTimeSelect(time)}
+                className={`p-3 rounded-lg text-center 
+                  ${
+                    selectedTime === time
+                      ? "bg-yellow-400 text-black"
+                      : "bg-zinc-800 text-yellow-500"
+                  }`}
+              >
+                {time}
+              </button>
+            ))}
           </div>
         </div>
-      </div>
-   
-  )
-}
 
+        {/* Book / Confirm Appointment */}
+        <div className="pl-14">
+          <button
+            onClick={handleAppointment}
+            className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-2 rounded-lg"
+          >
+            Make an Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
