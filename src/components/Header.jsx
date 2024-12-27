@@ -31,13 +31,13 @@ export default function Header() {
 
       
       <div className="flex gap-4 md:gap-6 mt-8 p-4 justify-left md:justify-start">
-        <a href="#" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
+        <a href="https://web.facebook.com/?_rdc=1&_rdr" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
           <Facebook size={20} />
         </a>
-        <a href="#" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
+        <a href="https://www.linkedin.com/feed/" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
           <Linkedin size={20} />
         </a>
-        <a href="#" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
+        <a href="" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
           <Instagram size={20} />
         </a>
         <a href="#" className="bg-gray-800 rounded-lg text-white p-2 md:p-1">
