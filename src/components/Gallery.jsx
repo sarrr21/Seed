@@ -9,8 +9,7 @@ const images = [
   { src: "./image/ride1.jpg", alt: "Image 1 Description" },
   { src: "./image/ride2.jpg", alt: "Image 2 Description" },
   { src: "./image/ride3.jpg", alt: "Image 3 Description" },
-  { src: "./image/ride2.jpg", alt: "Image 4 Description" },
-  { src: "./image/ride3.jpg", alt: "Image 5 Description" },
+ 
 ];
 
 const Gallery = () => {
@@ -66,7 +65,7 @@ const Gallery = () => {
         </Swiper>
       </div>
 
-      {/* Popup */}
+      
       {popupImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closePopup}>
           <div className="relative" onClick={(e) => e.stopPropagation()}>
