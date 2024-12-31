@@ -1,60 +1,47 @@
-import React, { useState } from "react"
-import { Car, X } from "lucide-react"
+import React, { useState } from "react";
+import { Car, X } from "lucide-react";
 
 export default function Products() {
-  const [selectedProductId, setSelectedProductId] = useState(null)
-
-  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false)
-
-  const [isQRDialogOpen, setIsQRDialogOpen] = useState(false)
-
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null)
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
+  const [isQRDialogOpen, setIsQRDialogOpen] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
 
   const paymentMethods = [
-    {
-      id: "telebirr",
-      name: "Telebirr",
-      qrUrl: "./image/download.png",
-    },
-    {
-      id: "cbe",
-      name: "CBE",
-      qrUrl: "./image/download.png",
-    },
-    {
-      id: "zemen",
-      name: "Zemen",
-      qrUrl: "./image/download.png",
-    },
-  ]
+    { id: "telebirr", name: "Telebirr", qrUrl: "./image/download.png" },
+    { id: "cbe", name: "CBE", qrUrl: "./image/download.png" },
+    { id: "zemen", name: "Zemen", qrUrl: "./image/download.png" },
+  ];
 
   const handleSelectProduct = (productId) => {
-    setSelectedProductId(productId)
-  }
+    setSelectedProductId((prevSelectedId) =>
+      prevSelectedId === productId ? null : productId
+    );
+  };
 
   const openPaymentDialog = () => {
-    if (!selectedProductId) return 
-    setIsPaymentDialogOpen(true)
-  }
+    if (!selectedProductId) return;
+    setIsPaymentDialogOpen(true);
+  };
 
   const closePaymentDialog = () => {
-    setIsPaymentDialogOpen(false)
-  }
+    setIsPaymentDialogOpen(false);
+  };
 
   const handleOpenQRDialog = (method) => {
-    setSelectedPaymentMethod(method)
-    setIsPaymentDialogOpen(false)
-    setIsQRDialogOpen(true)
-  }
+    setSelectedPaymentMethod(method);
+    setIsPaymentDialogOpen(false);
+    setIsQRDialogOpen(true);
+  };
 
   const handleCloseQRDialog = () => {
-    setIsQRDialogOpen(false)
-  }
+    setIsQRDialogOpen(false);
+  };
 
   return (
     <section className="p-6 text-white">
       <h2 className="text-xl font-bold mt-6 mb-4">Products</h2>
-      
+
       <div className="space-y-4">
         <div
           onClick={() => handleSelectProduct(1)}
@@ -62,14 +49,10 @@ export default function Products() {
             flex items-center justify-between p-4 border-2 border-white border-dashed rounded-lg 
             cursor-pointer transition-colors 
             hover:bg-white/10
-            ${
-              selectedProductId === 1 
-                ? "bg-white/10 border-yellow-400"
-                : ""
-            }
+            ${selectedProductId === 1 ? "bg-white/10 border-yellow-400" : ""}
           `}
         >
-          <div className="flex items-center gap-3 ">
+          <div className="flex items-center gap-3">
             <Car className="text-yellow-400" />
             <div>
               <h3 className="font-bold">Cabby Regular</h3>
@@ -85,11 +68,7 @@ export default function Products() {
             flex items-center justify-between p-4 border-2 border-white border-dashed rounded-lg 
             cursor-pointer transition-colors 
             hover:bg-white/10
-            ${
-              selectedProductId === 2 
-                ? "bg-white/10 border-yellow-400"
-                : ""
-            }
+            ${selectedProductId === 2 ? "bg-white/10 border-yellow-400" : ""}
           `}
         >
           <div className="flex items-center gap-3">
@@ -131,12 +110,9 @@ export default function Products() {
             >
               <X className="w-5 h-5" />
             </button>
-
-
             <h3 className="text-lg font-bold mb-4 text-center">
               Choose Payment Method
             </h3>
-            
             <div className="grid grid-cols-1 gap-3">
               {paymentMethods.map((method) => (
                 <button
@@ -162,11 +138,9 @@ export default function Products() {
             >
               <X className="w-5 h-5" />
             </button>
-
             <h3 className="text-lg font-bold text-center mb-4">
               {selectedPaymentMethod.name} QR
             </h3>
-
             <div className="flex justify-center mb-4">
               <img
                 src={selectedPaymentMethod.qrUrl}
@@ -174,16 +148,13 @@ export default function Products() {
                 className="w-40 h-40 object-contain"
               />
             </div>
-
-            <p className="text-center text-sm text-gray-300">
-              Scan this code to complete your payment via{" "}
-              <span className="font-semibold text-yellow-400">
-                {selectedPaymentMethod.name}
-              </span>
+            <p className="text-center  text-gray-300">
+              Scan $ complete payment 
             </p>
+            <h1 className="text-xl text-center"><span className="text-yellow-400 text-2xl font-bold">Account:</span> 1000525667521</h1>
           </div>
         </div>
       )}
     </section>
-  )
+  );
 }

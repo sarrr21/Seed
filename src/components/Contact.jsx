@@ -9,23 +9,28 @@ export default function ContactInfo() {
         {/* Contact List */}
         <div className="grid grid-cols-2 gap-4 md:gap-8 md:w-3/4">
           {/* Email */}
-          <div className=" items-center ">
-            <Mail className="text-yellow-400" />
+          <a href="mailto:taxiservice@gmail.com" className="flex items-center">
+            <Mail className="text-yellow-400 mr-2" />
             <h1>taxiservice@gmail.com</h1>
-          </div>
+          </a>
           {/* Phone */}
-          <div className=" items-center ">
-            <Phone className="text-yellow-400" />
+          <a href="tel:+49955542654" className="flex items-center">
+            <Phone className="text-yellow-400 mr-2" />
             <h1>+49 95554 2654</h1>
-          </div>
+          </a>
           {/* Location */}
-          <div className=" items-center ">
-            <MapPin className="text-yellow-400" />
+          <a
+            href="https://www.google.com/maps/place/Berlin,+Germany"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center"
+          >
+            <MapPin className="text-yellow-400 mr-2" />
             <h1>Berlin, Germany</h1>
-          </div>
+          </a>
           {/* Date */}
-          <div className="items-center ">
-            <Calendar className="text-yellow-400" />
+          <div className="flex items-center">
+            <Calendar className="text-yellow-400 mr-2" />
             <h1>4 December 1995</h1>
           </div>
         </div>

@@ -4,22 +4,21 @@ import { CalendarIcon } from "lucide-react";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Appointment() {
-  // Default the date to today's date.
+  
   const [date, setDate] = useState(new Date());
 
   const [selectedTime, setSelectedTime] = useState(null);
   const [timeSlots, setTimeSlots] = useState([]);
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  // Generate random time slots or any custom logic you want.
+  
   const generateRandomTimeSlots = (numSlots = 4) => {
     let slots = [];
     for (let i = 0; i < numSlots; i++) {
-      // Example: random hour between 8 and 17
       const startHour = 8 + Math.floor(Math.random() * 9);
-      const startMin = Math.random() < 0.5 ? "00" : "30"; // random "00" or "30"
+      const startMin = Math.random() < 0.5 ? "00" : "30"; 
       
-      // Example: shift end time 45 minutes later
+  
       let endHour = startHour;
       let endMin = "45";
 
@@ -30,7 +29,6 @@ export default function Appointment() {
     return slots;
   };
 
-  // On mount (and whenever the date changes), generate time slots.
   useEffect(() => {
     const slots = generateRandomTimeSlots();
     setTimeSlots(slots);
@@ -64,7 +62,7 @@ export default function Appointment() {
       </div>
 
       <div className="space-y-6">
-        {/* Date Section */}
+       
         <div className="flex gap-4">
           <label className="text-md text-zinc-300 font-semibold">Date:</label>
           <div
@@ -77,7 +75,7 @@ export default function Appointment() {
             <CalendarIcon className="w-5 h-5 text-yellow-500" />
           </div>
 
-          {/* Show the DatePicker when user clicks the icon or date field */}
+         
           {showDatePicker && (
             <div className="absolute z-50 mt-14">
               <DatePicker
@@ -89,7 +87,7 @@ export default function Appointment() {
           )}
         </div>
 
-        {/* Time Slots Section */}
+       
         <div className="flex gap-4">
           <label className="text-md text-zinc-300 font-semibold">Hour:</label>
           <div className="grid grid-cols-2 w-full gap-2">
@@ -110,7 +108,7 @@ export default function Appointment() {
           </div>
         </div>
 
-        {/* Book / Confirm Appointment */}
+       
         <div className="pl-14">
           <button
             onClick={handleAppointment}

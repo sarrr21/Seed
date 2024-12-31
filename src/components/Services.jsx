@@ -1,4 +1,5 @@
 import { Plane, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Services() {
   return (
@@ -13,23 +14,29 @@ export default function Services() {
           <div className="flex justify-center items-center gap-3 mb-2">
             <Plane className="text-yellow-400" />
           </div>
-          <h3 className="font-bold whitespace-nowrap  break-words">
+          <h3 className="font-bold whitespace-nowrap  break-words text-center">
             Airport Transfers
           </h3>
-          <p className="text-gray-400 whitespace-normal break-words">
+          <p className="text-gray-400 whitespace-normal break-words text-center">
             Professional and punctual airport transfer service
           </p>
+          <Link to="/airport">
+          <h1 className="text-center text-yellow-400">Read More</h1>
+          </Link>
         </div>
         <div className="p-4 border-2 border-white border-dashed rounded-lg overflow-hidden">
           <div className="flex justify-center items-center gap-3 mb-2">
             <Clock className="text-yellow-400" />
           </div>
-          <h3 className="font-bold whitespace-nowrap  break-words">
+          <h3 className="font-bold whitespace-nowrap text-center  break-words">
             Scheduled Rides
           </h3>
-          <p className="text-gray-400 whitespace-normal break-words">
+          <p className="text-gray-400 whitespace-normal break-words text-center">
             Pre-book your rides for guaranteed availability
           </p>
+          <Link to="/ride">
+          <h1 className="text-center text-yellow-400">Read More</h1>
+          </Link>
         </div>
       </div>
     </section>
