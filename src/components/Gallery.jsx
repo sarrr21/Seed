@@ -9,6 +9,8 @@ const images = [
   { src: "./image/ride1.jpg", alt: "Image 1 Description" },
   { src: "./image/ride2.jpg", alt: "Image 2 Description" },
   { src: "./image/ride3.jpg", alt: "Image 3 Description" },
+  { src: "./image/ride2.jpg", alt: "Image 2 Description" },
+  { src: "./image/ride3.jpg", alt: "Image 3 Description" },
  
 ];
 
@@ -31,7 +33,7 @@ const Gallery = () => {
       <div className="max-w-5xl mx-auto">
         <Swiper
           spaceBetween={20}
-          slidesPerView={1}
+          slidesPerView={3}
           breakpoints={{
             640: {
               slidesPerView: 3,
@@ -55,7 +57,7 @@ const Gallery = () => {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-48 md:h-64 object-cover rounded-2xl"
+                    className="w-full h-36 md:h-64 object-cover rounded-2xl"
                   />
                 </div>
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300 rounded-2xl"></div>
@@ -72,7 +74,7 @@ const Gallery = () => {
             <img
               src={popupImage.src}
               alt={popupImage.alt}
-              className="max-w-3xl max-h-[80vh] object-contain rounded-lg"
+              className="max-w-3xl max-h-[80vh]  object-contain rounded-lg"
             />
             <button
               className="absolute top-4 right-4 text-white text-2xl"
